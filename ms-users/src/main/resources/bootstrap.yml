@@ -6,7 +6,9 @@ spring:
   cloud:
     config:
       enabled: true
-      uri: http://user:s3cret@localhost:8888
+      uri: http://10.53.30.45:8888
+      username: user
+      password: s3cret
   data:
     rest:
       base-path: /api
