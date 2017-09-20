@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: ms-users
+  cloud:
+    config:
+      enabled: true
+      uri: http://user:s3cret@localhost:8888
+  data:
+    rest:
+      base-path: /api

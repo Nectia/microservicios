@@ -1,10 +1,13 @@
+
 spring:
-   cloud:
-      config:
-         server:
-            git:
-               uri: https://github.com/Nectia/config-repo
-               basedir: target/config
+  application:
+    name: Config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Nectia/config-repo
+          basedir: target/config
 
 server:
   port: 8888
@@ -12,3 +15,4 @@ server:
 security:
   user:
     password: s3cret
+
