@@ -1,0 +1,13 @@
+server:
+  port: 8761
+spring:
+  application:
+      name: eureka
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+  instance:
+    appname: eureka
+    health-check-url: /health
+    instance-id: ${spring.application.name}:${random.value}

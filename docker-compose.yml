@@ -1,0 +1,28 @@
+version: '2'
+services:
+  ms-config:
+    build:
+      context: ./ms-config
+    ports:
+     - "8888:8888"
+  ms-eureka:
+    build:
+      context: ./ms-eureka
+    depends_on:
+     - ms-config
+    ports:
+     - "8761:8761"
+  ms-zuul:
+    build:
+      context: ./ms-zuul
+    depends_on:
+     - ms-eureka
+     - ms-config
+    ports:
+     - "8080:8080"
+  ms-users:
+    build:
+      context: ./ms-users
+    depends_on:
+     - ms-eureka
+     - ms-config

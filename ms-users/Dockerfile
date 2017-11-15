@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-alpine
 VOLUME /tmp
 ADD target/ms-users-0.0.1-SNAPSHOT.jar app.jar
-ENV JAVA_OPTS=""
-EXPOSE 8081
+ENV JAVA_OPTS="-Dspring.profiles.active=aws"
+# ENV JAVA_OPTS=""
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]

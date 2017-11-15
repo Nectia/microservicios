@@ -1,19 +1,26 @@
 server:
-  port: 0
+  port: 8080
+
 spring:
   application:
-    name: ms-users
+    name: api-gateway
   cloud:
     config:
       enabled: true
       uri: http://ec2-13-57-34-187.us-west-1.compute.amazonaws.com:8888
       username: user
       password: s3cret
-  data:
-    rest:
-      base-path: /api
+
+zuul:
+  prefix: /api
+  routes:
+    users:
+      path: /users/**
+      serviceId: ms-users
+  strip-prefix: false
+
 eureka:
   instance:
-    appname: ms-users
+    appname: api-gateway
     health-check-url: /health
     instance-id: ${spring.application.name}:${random.value}
